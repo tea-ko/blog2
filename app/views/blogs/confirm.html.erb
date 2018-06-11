@@ -1,16 +1,20 @@
-<h3>以下の内容で、送信する。</h3>
+<div class="alert alert-success">以下の内容でつぶやく。</div>
+<p><%= @blog.content %></p>
 
-<%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
-  <%= form.hidden_field :title %>
-  <%= form.hidden_field :content %>
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default">
+    <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+      <%= form.hidden_field :content %>
+      <%= form.submit  "ＯＫ" %>
+    <% end %>
+  </button>
+  <button type="button" class="btn btn-default">
+    <%= form_with(model: @blog, url: new_blog_path, local: true, method: 'get') do |form| %>
+      <%= form.hidden_field :content %>
+      <%= form.submit "もどる", name: 'back' %>
+    <% end %>
+</button>
 
-  <p>タイトル:<%= @blog.title %></p>
-  <p>本文:<%= @blog.content %></p>
-  <%= form.submit  "登録する" %>
-<% end %>
-
-<%= form_with(model: @blog, url: new_blog_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :title %>
-  <%= form.hidden_field :content %>
-  <%= form.submit "もどる", name: 'back' %>
-<% end %>
+ 
+  
+  

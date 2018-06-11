@@ -1,25 +1,24 @@
 <%= form_with(model: @blog, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if @blog.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-      <ul>
-
-      <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <div class="alert alert-danger">
+      <p>エラー！</p>
+      <p>つぶやきが空っぽ、または文字数オーバーです。</p>
+      <p>140文字以内でつぶやいてください。</p>
+      </div>
     </div>
   <% end %>
-
-  <div class="blog_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="blog_title">
-    <%= form.label :content %>
+<ul>
+  <div class="tweet">
+  <li>
     <%= form.text_field :content %>
   </div>
-  <%= form.submit %>
+  </li>
+  <li>
+  <%= form.submit "つぶやく" %>
+  </li>
+</ul> 
+  
 <% end %>
 
-<%= link_to "ブログ一覧画面にもどる", blogs_path %>
+<%= link_to "つぶやきリスト", blogs_path %>
