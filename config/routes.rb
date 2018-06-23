@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  root 'top#index'
+
   resources :blogs do
-    collection do
-      post :confirm
-    end
+    post :confirm, on: :collection
+    # collection do
+    #   post :confirm
+    # end
   end
-  get 'blogs', to:'blogs#index'
+  #get 'blogs', to:'blogs#index'
   
-  resources :blogs
+  #resources :blogs
 end
 
