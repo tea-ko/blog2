@@ -12,7 +12,8 @@
           <%= blog.content %>
           <br>
           <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default"><%= link_to "編集", edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' }%></button>
+            <button type="button" class="btn btn-default"><%= link_to '詳細', blog_path(blog.id) %></button>
+            <button type="button" class="btn btn-default"><%= link_to '編集', edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' }%></button>
             <button type="button" class="btn btn-default"><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></button>
           </div>
         </li>
