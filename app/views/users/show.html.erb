@@ -1,2 +1,16 @@
-<h1><%= @user.name %>のページ</h1>
+<div class = "alert alert-success"><%= @user.name %>のページ</div>
 <p>メールアドレス: <%= @user.email %></p>
+<br>
+
+<div class = "alert alert-info"><%= @user.name %>のお気に入りブログ</div>
+<article>
+  <div class="contents">
+    <ul class="row">
+      <% @favorites.each do |favorite| %>
+        <li class="col-md-6">
+          <%= favorite.blog.content %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</article>
