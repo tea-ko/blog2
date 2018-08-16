@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contacts
   root 'top#index'
 
   resources :blogs do
@@ -9,5 +10,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
+  
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  
 end
 
