@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
-  resources :contacts
   root 'top#index'
-
+  resources :contacts
+  
   resources :blogs do
     post :confirm, on: :collection
   end
