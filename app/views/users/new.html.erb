@@ -26,9 +26,11 @@
     </li>   
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
-    <li> 
-      <%= f.submit "アカウントを作成する" %>
+    <li>
+      <%= f.label :image %>
+      <%= f.file_field :image, id: :user_image %>
     </li>
+      <%= f.submit "アカウントを作成する" %>
   </div>
   </ul>
 
