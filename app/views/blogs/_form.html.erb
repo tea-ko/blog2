@@ -8,7 +8,15 @@
       </div>
     </div>
   <% end %>
+  
 <ul>
+  <li>
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+  </li>
   <div class="tweet">
   <li>
     <%= form.text_field :content %>
